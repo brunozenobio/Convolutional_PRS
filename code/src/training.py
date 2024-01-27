@@ -2,7 +2,7 @@
 #Librerias utiles para los archivos y las imagenes
 import os
 import numpy as np
-from skimage import io
+from skimage import io,color
 from PIL import Image
 from torchvision import transforms
 
@@ -54,7 +54,8 @@ class Dataset(torch.utils.data.Dataset): # Genero la clase Dataset para las imag
   def __getitem__(self, ix):
     # cargar la imágen
     img = io.imread(self.X[ix]) #Leo la imagen
-    img = Image.fromarray(img)
+    img = Image.fromarray(img[:, :, :3])  # Tomo solo los primeros 3 canales (RGB)
+
     # aplicar transformaciones
     if self.trans: # Si incorpore una trasnformacion la aplico
       img = self.trans(img)

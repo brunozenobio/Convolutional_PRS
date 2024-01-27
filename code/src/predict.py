@@ -40,7 +40,7 @@ def img_load(img_path):
         transforms.ToTensor(),
     ])
     img = io.imread(img_path)
-    img = Image.fromarray(img)
+    img = Image.fromarray(img[:, :, :3])
     img = transform(img)
     img = img.unsqueeze(0)   # Como el modelo recibe los batch debo hacer una dimension de batch.
     return img
