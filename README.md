@@ -1,7 +1,7 @@
 <h1 align='center'> Proyectos: Detección de imagenes de piedra papel o tijeras con redes neuronales convolucionales</h1>
 
 
-<h2 align='center'>Bruno Zenobio, DATAFT16</h2>
+<h2 align='center'>Bruno Zenobio</h2>
 
 ---
 
@@ -12,7 +12,8 @@
     - [Extracción de los datos](#extracción-de-los-datos)
     - [Preparación](#preparación-de-los-datos)
     - [Modelos](#modelosn)
-    - [Predicciones](#despliegue-para-la-api)
+    - [Testeo](#testeo)
+    - [Conclusión](#conclusión)
 - [Contacto](#contacto)
 
 - ## **`Links`**
@@ -34,8 +35,7 @@ Las redes ResNet usan una arquitectura de red neuronal residual, de esta forma s
 
 La arquitectura usada fue ResNet18, una version de las arquitecturas ResNet, particularmente esta tiene 18 capas, el modelo fue entrenado con conjuntos de datos de ImageNet, la cual guarda conjuntos de millones de imagenes, el modelo ademas tiene 1000 categorias de salida, por esto habra que adaptarlo a la situación modificando sus capas. 
 
-[!NOTE] 
-Dentro de una arquitectura convolucional tenemos:
+ **`Dentro de una arquitectura convolucional tenemos:`**
 
 - Capas Convolucionales: Se encargan de aplicar un filtro a una imagen, de manera local en un rango determinado.
 - Capas de Pooling: Se encargan de reducir la dimension para aumentar el rendimiento y captar caracteristicas robustas.
@@ -85,17 +85,40 @@ Para poder probar, distintas estructuras, a partir de la arquitectura de ResNet,
 
 Debido a los resultados obtenidos la arquitectura de ResNet con sus pesos, y permitiendo que se reentrene sera el utilizado para el modelo final.
 
-### Despliegue para la API
+### Modelo Final
 
-Se desarrollaron las siguientes funciones, a las cuales se podrá acceder desde la API en la página Render:
+Con la informacón de los distintos entrenamientos, se decidio entrenar al modelo final, con la arquitectura de resnet, con los pesos existentes y la posibilidad de reentrenarse, ademas se usaron 4 epochs y un ratio de perdida de 0.01, finalmente este se guardado en [modelo](./model/).
 
-- **`developer(desarrollador: str)`**: Retorna la cantidad de ítems y el porcentaje de contenido gratis por año para un desarrollador dado.
-- **`userdata(User_id: str)`**: Retorna el dinero gastado, cantidad de ítems y el porcentaje de comentarios positivos en la revisión para un usuario dado.
-- **`UserForGenre(género: str)`**: Retorna al usuario que acumula más horas para un género dado y la cantidad de horas por año.
-- **`best_developer_year(año: int)`**: Retorna los tres desarrolladores con más juegos recomendados por usuarios para un año dado.
-- **`developer_rec(desarrolladora: str)`**: Retorna una lista con la cantidad de usuarios con análisis de sentimiento positivo y negativo para un desarrollador dado.
-- **`ser_recommend(user:str)`**: Esta función recomienda 5 juegos para un usuario especificado usando un filtro colaborativo.
-- **`item_recommend(item:int)`**: Esta función recomienda 5 ítems dado un ítem específico usando un filtro basado en contenido.
+### Testeo
+
+
+### Conclusión
+
+Como conslusión, se puede ver que si bien el modelo sufre algunas equivocaciones, a logrado predecir bastante bien, teniendo en cuenta ademas, que el dataset tenia menos de 2000 datos para el entrenamiento, aun asi el resultado de este trabajo se cierra aqui, sin embargo el modelo esta guardado con sus pesos, para poder reentrenarse en un futuro.
+
+Para complemtar el modelo, es un buena practicar reentrenar el modelo modificando capas, usando diferentes lr y cantidad de epochs.
+
+### Como usar:
+
+- **`Clonar en una maquina con python funcional`**
+```bash
+$ git clone https://github.com/brunozenobio/Convolutional_PRS/tree/main
+```
+- **`Instalar el requeriments.txt`**
+```bash
+$ pip install -r requirements.txt
+```
+- **`Agrega la imagen a la carpeta images`**
+- **`En una terminal ejecutar predict.py`**
+
+Desde la raiz:
+```python
+$ python.exe .\code\src\predict.py image
+```
+
+
+
+
 
 
 ## Contacto
