@@ -17,11 +17,8 @@
 - [Contacto](#contacto)
 
 - ## **`Links`**
-    - [Carpeta con los dataset](./datasets/)
-    - [Proceso de ETL y EDA](./ETL%20y%20EDA/)
-    - [Modelo de Recomendación](./model/)
-    - [API desplegada en Render](https://steam-api-deploy.onrender.com/docs)
-    - [Link al video](https://www.youtube.com/watch?v=IrYgvdtJEaI)
+    - [Dataset](https://www.kaggle.com/datasets/glushko/rock-paper-scissors-dataset)
+    - [Modelo](./model/)
 
 
 
@@ -108,7 +105,7 @@ $ git clone https://github.com/brunozenobio/Convolutional_PRS/tree/main
 ```bash
 $ pip install -r requirements.txt
 ```
-- **`Agrega la imagen a la carpeta images`**
+- **`Agrega la imagen a la carpeta data_test`**
 - **`En una terminal ejecutar predict.py`**
 
 Desde la raiz:
